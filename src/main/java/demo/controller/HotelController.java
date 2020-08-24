@@ -16,6 +16,11 @@ public class HotelController {
         this.hotelRepository = hotelRepository;
     }
 
+    @PostMapping("/add")
+    public Hotel create(@RequestBody Hotel hotel) {
+        return hotelRepository.save(hotel);
+    }
+
     @GetMapping("/all")
     public List<Hotel> getAll() {
         return hotelRepository.findAll();
